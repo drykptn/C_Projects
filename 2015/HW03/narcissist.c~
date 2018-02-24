@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<math.h>
+
+int narcissisticNumber( int );
+
+int main() {
+	int number;
+	
+	printf(" Please enter a positive integer:");
+	scanf("%d", &number);
+	
+	narcissisticNumber( number );	
+	return 0;
+}
+
+int narcissisticNumber( digit2 ) {
+int result1, result2, result3;
+	while ( digit2<10 ) {
+		result1 = pow(digit2,1); 
+		
+		if (digit2 == result1 )
+			printf("%d is a narcissistic number !", digit2);
+		else 
+			printf("%d is not a narcissistic number !", digit2);	
+	return 0;	
+	}
+	
+	while ( digit2>=10 && digit2<100 ) {
+		int a, b;
+		a=digit2%10;
+		b=(digit2/10)%10;
+		result2 = (b*b)+(a*a);
+		
+		if (digit2 == result2)  
+			printf("%d is a narcissistic number !", digit2);
+		else  
+			printf("%d is not a narcissistic number !", digit2);
+	
+	return 0;
+	}
+	
+	while ( digit2>=100 && digit2<1000) {
+		int x,y,z;
+		x=digit2%10;
+		y=(digit2/10)%10;
+		z=digit2/100;
+		result3=(z*z*z) + (y*y*y) + (x*x*x);
+		
+		if (digit2 == result3 )
+			printf("%d is a narcissistic number !", digit2);
+		else  
+			printf("%d is not a narcissistic number !", digit2);
+		
+	return 0;
+	}
+}

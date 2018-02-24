@@ -1,0 +1,33 @@
+#include<stdio.h>
+int main() {
+int midtermWeight1, midtermWeight2, midtermWeight3, homeworkWeight1, homeworkWeight2, finalWeight, midtermGrade1, midtermGrade2, midtermGrade3, homeworkGrade1, homeworkGrade2, finalGrade;
+float average;
+	printf("Please enter the 1. midterm weight:");	
+	scanf("%d", &midtermWeight1);
+	printf("Please enter the 2. midterm weight:");	
+	scanf("%d", &midtermWeight2);
+	printf("Please enter the 3. midterm weight:");	
+	scanf("%d", &midtermWeight3);
+	printf("Please enter the 1. homework weight:");	
+	scanf("%d", &homeworkWeight1);
+	printf("Please enter the 2. homework weight:");	
+	scanf("%d", &homeworkWeight2);
+	printf("please enter the final exam weight:");	
+	scanf("%d", &finalWeight);
+	printf("Please enter the 1. midterm grade:");	
+	scanf("%d", &midtermGrade1);
+	printf("Please enter the 2. midterm grade:");	
+	scanf("%d", &midtermGrade2);
+	printf("Please enter the 3. midterm grade:");	
+	scanf("%d", &midtermGrade3);
+	printf("Please enter the 1. homework grade:");	
+	scanf("%d", &homeworkGrade1);
+	printf("Please enter the 2. homework grade:");	
+	scanf("%d", &homeworkGrade2);
+	printf("Please enter the final exam grade:");	
+	scanf("%d", &finalGrade);
+	/* (all grades*weight)/100 */
+	average=(float)((midtermGrade1*midtermWeight1)+(midtermGrade2*midtermWeight2)+(midtermGrade3*midtermWeight3)+(homeworkGrade1*homeworkWeight1)+(homeworkGrade2*homeworkWeight2)+(finalGrade*finalWeight))/100;
+	printf("Your final grade is: %f\n", average);
+	return 0;
+}

@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<math.h>
+
+int oddNumber( int );
+int factorialNumber( int);
+int narcissisticNumber( int );
+
+int main() {
+	int number, choice;
+	char yesNo;
+	
+	printf(" Please enter a positive integer:");
+	scanf("%d", &number);
+	
+	if ( number<0 ) {
+		printf("ERROR! Please enter a positive integer \n");
+		printf("Do you want to continue (y/n)?");
+		scanf("%c", &yesNo);
+	}
+	
+	while ( yesNo == 'y' || yesNo == 'Y' ) {
+		
+		printf( "Which property would you like to check?\n" );
+		printf( "1)Odd number\n" );
+		printf( "2)Factorial number\n" );
+		printf( "3)Narcissistic number\n" );
+		printf( "Please enter(1/2/3): ");	
+		scanf("%d", &choice );
+		
+		switch ( choice ) {
+			case '1':
+				oddNumber( number );	
+				break;
+			case '2':
+				factorialNumber ( number );
+				break;
+			case '3':
+				narcissisticNumber( number );
+				break;	
+			default:
+				printf("Please try again");
+				break;
+		}
+		printf("Do you want to continue (y/n)?");
+		scanf("%c", &yesNo);
+	}
+	return 0;	
+	
+}
+int oddNumber( int digit1 ) {
+	if (number%2!=0)
+		printf("%d is a odd number !", number);
+	else 
+		printf("%d is not a odd number !", number)
+}
+int factorial number( int number ) {
+	int i=1, result=1;
+	while ( 1) {
+		result = result*i;
+		i++;	
+		if ( result==number ) {
+			printf("%d is a factorial number !", number);
+			return 0;
+		}
+		else if( result>number ) {
+			printf("%d is not a factorial number !", number);
+			return 0;
+		}
+	}
+}
+int narcissisticNumber( digit2 ) {
+int result1, result2;
+	while ( digit2<10 ) {
+		result1 = pow(digit2,1); 
+		if (digit2 == result1 )
+			printf("%d is a narcissistic number !", digit2);
+		else 
+			printf("%d is not a narcissistic number !", digit2);	
+	return 0;	
+	}
+	while ( digit2>=10 && digit2<100 ) {
+		
+		result2 = ( pow(( (digit2/10)%10),2 )+pow( (digit2%10),2) )
+		if (digit2 == result2)  
+			printf("%d is a narcissistic number !", digit2);
+		else 
+			printf("%d is not a narcissistic number !", digit2);
+	
+	return 0;
+	}
+}
+
+
+
+
+
+
+
+
+

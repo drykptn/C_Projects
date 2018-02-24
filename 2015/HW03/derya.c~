@@ -1,0 +1,178 @@
+/*---------------------------------------------------------------------------*/
+/* 														                     */
+/* HW03_141044025_Derya_Kaptan							                     */
+/* 														                     */
+/* --------------------------------------------------------------------------*/
+/* Created on 06/03/2016 by Derya_Kaptan					            	 */
+/* 														                     */
+/*														                     */
+/*---------------------------------------------------------------------------*/
+/*                            Includes 				    	                 */
+/*---------------------------------------------------------------------------*/ 
+#include<stdio.h>
+#include<math.h>
+
+/*---------------------------------------------------------------------------*/
+/*                           Function Prototypes   						     */
+/*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+/* 											                    			 */ 
+
+/* This function checks whether the given number is an odd number            */ 
+void oddNumber( int );
+
+/*This function checks whether the given number is  a factorial number       */
+int factorialNumber( int );
+
+/*This function checks whether the given number is a narcissistic number     */
+void narcissisticNumber( int );
+
+/*This function checks choice and calculates digits                          */ 
+int fonk(int);
+
+void drawBox();
+
+int main() {
+	int number;
+	char yesNo; /* yesNo=for continue */
+	
+	drawBox;
+	while (1) {
+	printf("Please enter a positive integer:");
+	scanf(" %d&", &number);
+	
+/*if the given number small than zero                                        */	
+		if ( number<0 ) {
+			printf("ERROR! Please enter a positive integer \n");
+		}
+		
+/*if the given number big than zero or equal zero                            */		
+		else if ( number>=0) {
+		 	fonk(number);
+		}
+		printf("Do you want to continue (y/n)?");
+		scanf(" %c&", &yesNo);
+		
+/*if the user choice another character                                       */
+		if(yesNo=='n') {
+			printf("Good Bye !\n");
+			return 0;			
+		}
+	}
+	return 0;
+}
+
+/*Function Definition*/
+void oddNumber( int number ) {
+    
+    /* function body*/
+    
+/* if a number's mode is not equal zero, this number is an odd number        */
+	if (number%2!=0)
+		printf("%d is a odd number !\n", number);
+	else 
+		printf("%d is not a odd number !\n", number);
+}
+
+/*Function Definition*/
+int factorialNumber( int number ) {
+	
+	/* function body*/
+	
+	int i=1, result=1;
+
+	while ( 1) {
+	    
+/* starting with 1 products all numbers                                      */	    
+		result = result*i;
+		i++;	
+		
+/* if this results equals number, the given number is a factorial number.    */		
+		if ( result==number ) {
+			printf("%d is a factorial number !\n", number);
+			return 0;
+		}
+		else if( result>number ) {
+			printf("%d is not a factorial number !\n", number);
+			return 0;
+		}
+	}
+}
+
+/*Function Definition*/		
+void narcissisticNumber( int number ) {
+	
+	/* function body*/
+/*digit = digit place, temp = number of temporary value, i= a random number  */
+	int digit=0, temp=number, remainder,i , division, result=0;
+
+/* while the given number not equal zero                                     */
+	while ( temp!=0) {
+		temp=temp/10; /*the given number divide 10 till find digit places    */
+		digit++;
+	}
+
+/*i=a random number, k=digit place                                           */	
+	for(i=0; i<digit; i++) {
+	    
+/*the number divide 10 till equal 0                                          */
+		division = number/pow(10,i); 
+/* then get the numbers of modes                                             */
+		remainder = division%10;
+/* then respectively,take them the numbers of power                          */
+		result += pow(remainder,digit);
+	}
+/*if result equals number, this number is a narcissistic number.             */	
+	if( result==number ) 
+		printf("%d is a narcissistic number !\n", number);
+	else 
+		printf("%d is not a narcissistic number !\n", number);
+
+}
+	
+int fonk(int number) {
+/*print the intented list                                                    */
+		int choice;
+		printf( "Which property would you like to check?\n" );
+		printf( "1)Odd number\n" );
+		printf( "2)Factorial number\n" );
+		printf( "3)Narcissistic number\n" );
+		printf( "Please enter(1/2/3):");	
+		scanf("%d", &choice );
+
+/*the user enters a choice                                                   */
+	switch (choice ) {
+			case 1: 
+			/*if case equals choice,enter the function*/
+				oddNumber( number );	
+				break;
+			case 2:
+			/*if case equals choice,enter the function*/
+				factorialNumber( number );
+				break;
+			case 3:
+			/*if case equals choice,enter the function*/
+			/*if the number smaller than 10,number is a narcissistic number  */
+				if (number<10) {
+					printf("%d is a narcissistic number !\n", number);
+				}
+				else {
+					narcissisticNumber(number);
+				}
+				break;
+			default:
+			/*if the choise not equal any of them, doing this*/
+				printf("Please try again\n");
+				break;
+		}
+	return 0;		
+}
+
+void drawBox() {
+	printf("************************************************************\n");
+	printf("*                                WELCOME !                                     *\n");
+	printf("*     This program checks whether the given number     *\n");
+	printf("*       is an odd, a factorial or a narcissistic number       *\n");
+	printf("*											    *\n");
+	printf("************************************************************\n");
+}
